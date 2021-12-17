@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <title>TuffeTuffeTåg - Admin Kontakt</title>
+        <meta charset="utf-8">
+        <meta name="application-name" content="TuffeTuffeTåg">
+        <meta name="author" content="Robert Englund">
+        <meta name="description" content="TuffeTuffeTåg hemsida, admin kontakt">
+        <meta name="generator" content="Egen gjord">
+        <meta name="keyword" content="admin">
+        <meta name="robots" content="noindex">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="../../assets/css/main.css">
+        <link rel="stylesheet" type="text/css" href="../../assets/css/nav.css">
+        <link rel="stylesheet" type="text/css" href="../../assets/css/admin.css">
+
+        <script defer src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script defer src="../../assets/js/nav.js"></script>
+        <script defer src="../../assets/js/admin.js"></script>
+        <script defer src="../../assets/js/validate.js"></script>
+
+    </head>
+    <body>
+
+        <!--:NAV:-->
+
+        <main>
+
+            <div class="cut-background-top">
+                <div class="content-area">
+                    <article class="center-content max-content">
+                        <header>
+                            <h1>Kontakter som väntar hantering</h1>
+                            <span class="mark"></span>
+                        </header>
+                        <form action="mark-contact-read.php" method="POST">
+                            <ul class="output-list">
+                                <!--:NEED-ANSWER-CONTACT:-->
+                                <li>
+                                    <span>--:contact-name:--</span>
+                                    <br><br>
+                                    <span>--:contact-respond-type:--</span>
+                                    <br><br>
+                                    <span>--:contact-message:--</span>
+                                    <br><br>
+                                    <button type="submit" name="contact-id" value="--:contact-id:--">Markera som hanterat</button>
+                                </li>
+                                <!--:NEED-ANSWER-CONTACT:-->
+                            </ul>
+                        </form>
+                    </article>
+                </div>
+                <div class="content-area">
+                    <article class="center-content max-content">
+                        <header>
+                            <h1>Kontakter som har hanterats</h1>
+                            <span class="mark"></span>
+                        </header>
+                        <ul class="output-list">
+                            <!--:ANSWERED-CONTACT:-->
+                            <li>
+                                <span>--:contact-name:--</span>
+                                <br><br>
+                                <span>--:contact-respond-type:--</span>
+                                <br><br>
+                                <span>--:contact-message:--</span>
+                            </li>
+                            <!--:ANSWERED-CONTACT:-->
+                        </ul>
+                    </article>
+                </div>
+            </div>
+
+        </main>
+
+    </body>
+</html>

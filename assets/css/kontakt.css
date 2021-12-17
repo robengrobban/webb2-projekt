@@ -1,0 +1,146 @@
+#hero-image {
+	background-image: url("../img/contact-hero-image.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	width: 100%;
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+
+#hero-image article {
+	padding: 10rem 0;
+	background-color: rgba(0,0,0,0.2);
+}
+#hero-image article header {
+	text-align: center;
+}
+#hero-image article header h1 {	
+	color: white;
+	font-size: 2rem;
+}
+#hero-image article p {
+	text-align: center;
+	font-size: 1rem;
+	color: white;
+}
+
+#contact-container {
+	padding: 2rem 1rem;
+}
+
+#contact-form {
+	background-color: white;
+	border-radius: 1rem;
+	box-shadow: 0 2rem 3rem 0 #d0d0d0;
+}
+
+.form-row {
+	display: block;
+	width: 100%;
+	padding: 1rem;
+}
+
+.form-row header h1 {
+	text-align: center;
+	font-size: 2rem;
+}
+
+.form-row-inner {
+	padding: 1rem;
+}
+
+
+.form-row textarea {
+	
+}
+
+.form-row ul {
+	list-style-type: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.form-row ul li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1rem;
+	border: 0.2rem solid #d0d0d0;
+	transition: 0.2s border;
+}
+.form-row ul li:hover {
+	border: 0.2rem solid #2dbd2d;
+}
+
+.form-row ul li input[type=radio] {
+	padding: 1rem;
+	cursor: pointer;
+}
+.form-row ul li label {
+	padding: 1rem;
+	cursor: pointer;
+}
+
+#answer-email {
+	display: none;
+}
+
+#answer-phone {
+	display: none;
+}
+
+#answer-letter {
+	display: none;
+}
+
+.contact-feedback {
+	display: none;
+	padding: 5rem 0;
+}
+.contact-feedback p {
+	text-align: center;
+}
+
+@media only screen and (min-width:900px){
+
+	#hero-image article {
+		padding: 15rem 0;
+	}
+
+	#contact-container {
+		padding: 5rem 1rem;
+	}
+
+	.half-row-container {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.half-row {
+		width: 50%;
+	}
+
+	.form-row ul {
+		flex-direction: row;
+	}
+
+	.form-row ul li {
+		width: 25%;
+	}
+
+}
+@media only screen and (min-width:1800px){
+	#hero-image article {
+		padding: 20rem 0;
+	}
+
+	#contact-container {
+		padding: 10rem 1rem;
+	}
+}

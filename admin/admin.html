@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<title>TuffeTuffeTåg - Admin</title>
+		<meta charset="utf-8">
+		<meta name="application-name" content="TuffeTuffeTåg">
+		<meta name="author" content="Robert Englund">
+		<meta name="description" content="TuffeTuffeTåg hemsida, admin">
+		<meta name="generator" content="Egen gjord">
+		<meta name="keyword" content="admin">
+		<meta name="robots" content="noindex">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/nav.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/admin.css">
+
+		<script defer src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script defer src="../assets/js/nav.js"></script>
+		<script defer src="../assets/js/admin.js"></script>
+		<script defer src="../assets/js/validate.js"></script>
+
+	</head>
+	<body>
+
+		<!--:NAV:-->
+
+		<main>
+
+			<div class="cut-background-top">
+				<div class="content-area">
+					<article class="center-content max-content">
+						<header>
+							<h1>Admin verktyg</h1>
+							<span class="mark"></span>
+						</header>
+						<ul class="output-list">
+							<li><a href="contact/">Kontakter</a></li>
+							<li><a href="review/">Recensioner</a></li>
+						</ul>
+					</article>
+				</div>
+
+				<div class="content-area">
+					<article class="center-content max-content">
+						<header>
+							<h1>Skapa ett tåg</h1>
+							<span class="mark"></span>
+						</header>
+						<form method="POST" action="create-train.php">
+
+							<div class="form-row">
+								<label for="input-model" class="input-label">Tåg modell</label>
+								<input required id="input-model" class="input-field" type="text" name="train-model">
+								<p id="train-model-error-spot"></p>
+							</div>
+
+							<div class="form-row">
+								<button class="input-button" type="submit" name="create-train">
+									Skapa tåg
+								</button>
+							</div>
+
+						</form>
+					</article>
+				</div>
+			</div>
+
+
+			<div class="cut-background-bottom">
+				<div class="content-area">
+					<article class="center-content max-content">
+						<header>
+							<h1>Alla nuvarande tåg</h1>
+							<span class="mark"></span>
+						</header>
+						<ul class="output-list">
+							<!--:ALL-TRAINS:-->
+							<li>
+							<span>--:train-id:--</span>
+							<span>--:train-model:--</span>
+							</li>
+							<!--:ALL-TRAINS:-->
+						</ul>
+					</article>
+				</div>
+				<div class="content-area">
+					<article class="center-content max-content">
+						<header>
+							<h1>Skapa plats</h1>
+							<span class="mark"></span>
+						</header>
+						<form method="POST" action="create-location.php">
+
+							<div class="form-row">
+								<label for="input-location" class="input-label">Plats namn</label>
+								<input required id="input-location" class="input-field" type="text" name="location">
+								<p id="location-error-spot"></p>
+							</div>
+
+							<div class="form-row">
+								<button type="submit" name="create-location" class="input-button">
+									Skapa plats
+								</button>
+							</div>
+
+						</form>
+					</article>
+				</div>
+			</div>
+
+			<div class="cut-background-top">
+				<div class="content-area">
+					<article class="center-content max-content">
+						<header>
+							<h1>Alla nuvarande platser</h1>
+							<span class="mark"></span>
+						</header>
+						<ul class="output-list">
+							<!--:ALL-LOCATION:-->
+							<li>
+							<span>--:location-id:--</span>
+							<span>--:location-name:--</span>
+							</li>
+							<!--:ALL-LOCATION:-->
+						</ul>
+					</article>
+				</div>
+				<div class="content-area">
+					<article class="center-content max-content">
+						<header>
+							<h1>Lägg till sittplats till tåg</h1>
+							<span class="mark"></span>
+						</header>
+						<form method="POST" action="add-seat.php">
+
+							<div class="form-row">
+								<label class="input-label" for="seat-choose-train">Tåg</label>
+								<select class="input-field" required id="seat-choose-train" name="train">
+									<!--:TRAIN-OPTIONS:-->
+									<option value="--:train-id:--">--:train-model:--</option>
+									<!--:TRAIN-OPTIONS:-->
+								</select>
+							</div>
+
+							<div class="form-row">
+								<label class="input-label" for="input-seat">Sittplats nummer</label>
+								<input class="input-field" required id="input-seat" type="number" name="seat" min="1">
+							</div>
+
+							<div class="form-row">
+								<button class="input-button" type="submit" name="add-seat">
+									Lägg till
+								</button>
+							</div>
+
+						</form>
+					</article>
+				</div>
+			</div>
+
+			<div class="cut-background-bottom">
+				<div class="content-area">
+					<article class="center-content max-content">
+						<header>
+							<h1>Kolla sittplats på tåg</h1>
+							<span class="mark"></span>
+						</header>
+						<form method="GET" action="list-seat.php">
+
+							<div class="form-row">
+								<label class="input-label" for="list-seat-choose-train">Tåg</label>
+								<select class="input-field" required id="list-seat-choose-train" name="train">
+									<!--:LIST-SEAT-TRAIN-OPTIONS:-->
+									<option value="--:train-id:--">--:train-model:--</option>
+									<!--:LIST-SEAT-TRAIN-OPTIONS:-->
+								</select>
+							</div>
+
+							<div class="form-row">
+								<button class="input-button" type="submit" name="list-seat">
+									Visa
+								</button>
+							</div>
+
+						</form>
+					</article>
+				</div>
+				<div class="content-area">
+					<article class="center-content max-content">
+						<header>
+							<h1>Skapa resa</h1>
+							<span class="mark"></span>
+						</header>
+						<form method="POST" action="create-trip.php">
+
+							<div class="form-row">
+								<label class="input-label" for="trip-location-from">Avgång</label>
+								<select class="input-field" required id="trip-location-from" name="from">
+									<!--:TRIP-LOCATION-FROM:-->
+									<option value="--:location-id:--">--:location-name:--</option>
+									<!--:TRIP-LOCATION-FROM:-->
+								</select>
+							</div>
+
+							<div class="form-row">
+								<label for="trip-location-to">Destination</label>
+								<select class="input-field" required id="trip-location-to" name="to">
+									<!--:TRIP-LOCATION-TO:-->
+									<option value="--:location-id:--">--:location-name:--</option>
+									<!--:TRIP-LOCATION-TO:-->
+								</select>
+							</div>
+
+							<div class="form-row">
+								<label class="input-label" for="trip-departure">Avgångs datum</label>
+								<input class="input-field" required id="trip-departure" type="datetime-local" name="departure">
+							</div>
+
+							<div class="form-row">
+								<label class="input-label" for="trip-arrival">Ankomst datum</label>
+								<input class="input-field" required id="trip-arrival" type="datetime-local" name="arrival">
+							</div>
+							<div class="form-row">
+								<label class="input-label" for="input-track-number">Spårnummer</label>
+								<input class="input-field" required id="input-track-number" type="number" min="1" name="track-number">
+							</div>
+
+							<div class="form-row">
+								<label for="trip-choose-train">Tåg</label>
+								<select class="input-field" required id="trip-choose-train" name="train">
+									<!--:TRIP-TRAIN:-->
+									<option value="--:train-id:--">--:train-model:--</option>
+									<!--:TRIP-TRAIN:-->
+								</select>
+							</div>
+
+							<div class="form-row">
+								<button class="input-button" name="create-trip" type="submit">
+									Skapa resa
+								</button>
+							</div>
+
+						</form>
+					</article>
+				</div>
+				<div class="content-area">
+					<article class="center-content max-content">
+						<header>
+							<h1>Alla resor</h1>
+							<span class="mark"></span>
+						</header>
+						<ul class="output-list">
+							<!--:ALL-TRIPS:-->
+							<li>
+								<span>--:trip-id:--</span>
+								<span>--:trip-location-from:--</span>
+								<span>--:trip-location-to:--</span>
+								<span>--:trip-track:--</span>
+								<span>--:trip-train:--</span>
+								<span>--:trip-departure:--</span>
+								<span>--:trip-arrival:--</span>
+							</li>
+							<!--:ALL-TRIPS:-->
+						</ul>
+					</article>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

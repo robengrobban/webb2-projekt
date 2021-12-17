@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<title>TuffeTuffeTåg - Logga in</title>
+	<meta charset="utf-8">
+	<meta name="application-name" content="TuffeTuffeTåg">
+	<meta name="author" content="Robert Englund">
+	<meta name="description" content="TuffeTuffeTåg hemsida, logga in med ett konto">
+	<meta name="generator" content="Egen gjord">
+	<meta name="keyword" content="logga in">
+	<meta name="robots" content="all">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/form.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/footer.css">
+
+	<script defer src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script defer src="../assets/js/nav.js"></script>
+	<script defer src="../assets/js/log-in.js"></script>
+	<script defer src="../assets/js/subscribe.js"></script>
+	<script defer src="../assets/js/validate.js"></script>
+
+</head>
+<body>
+
+<!--:NAV:-->
+
+<main class="cut-background-top">
+
+	<article id="sign-up-container">
+
+		<form id="sign-up-form" method="POST" class="max-content center-content">
+
+			<div class="form-row">
+				<div class="form-row-inner">
+					<header>
+						<h1>Logga in</h1>
+						<span class="mark"></span>
+					</header>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-row-inner">
+					<label for="input-email" class="input-label">Mejladress</label>
+					<input id="input-email" type="email" name="email" class="input-icon mail-icon input-field">
+					<p id="email-error-spot" class="error-spot"></p>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-row-inner">
+					<label for="input-password" class="input-label">Lösenord</label>
+					<input id="input-password" type="password" name="password" class="input-icon password-icon input-field">
+					<p id="password-error-spot" class="error-spot"></p>
+				</div>
+			</div>
+
+			<span class="mark"></span>
+
+			<div class="form-row">
+				<div class="form-row-inner">
+					<button type="submit" name="log-in" class="input-button">
+						Logga in
+					</button>
+					<!--:PHP-ERROR:-->
+				</div>
+			</div>
+
+		</form>
+
+	</article>
+
+</main>
+
+<!--:FOOTER:-->
+
+</body>
+</html>

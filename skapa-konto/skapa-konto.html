@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <title>TuffeTuffeTåg - Skapa Konto</title>
+        <meta charset="utf-8">
+        <meta name="application-name" content="TuffeTuffeTåg">
+        <meta name="author" content="Robert Englund">
+        <meta name="description" content="TuffeTuffeTåg hemsida, skapa ett konto">
+        <meta name="generator" content="Egen gjord">
+        <meta name="keyword" content="skapa konto">
+        <meta name="robots" content="all">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/nav.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/form.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/footer.css">
+
+        <script defer src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script defer src="../assets/js/nav.js"></script>
+        <script defer src="../assets/js/sign-up.js"></script>
+        <script defer src="../assets/js/subscribe.js"></script>
+        <script defer src="../assets/js/validate.js"></script>
+
+    </head>
+    <body>
+
+    <!--:NAV:-->
+
+    <main class="cut-background-top">
+
+        <article id="sign-up-container">
+
+            <form id="sign-up-form" method="POST" class="max-content center-content">
+
+                <div class="form-row">
+                    <div class="form-row-inner">
+                        <header>
+                            <h1>Skapa Konto</h1>
+                            <span class="mark"></span>
+                        </header>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="half-row-container">
+                        <div class="half-row">
+                            <div class="form-row-inner">
+                                <label class="input-label" for="input-firstname">Förnamn</label>
+                                <input id="input-firstname" type="text" name="firstname" class="input-icon person-icon input-field">
+                                <p id="firstname-error-spot" class="error-spot"></p>
+                            </div>
+                        </div>
+                        <div class="half-row">
+                            <div class="form-row-inner">
+                                <label class="input-label" for="input-lastname">Efternamn</label>
+                                <input id="input-lastname" type="text" name="lastname" class="input-icon person-icon input-field">
+                                <p id="lastname-error-spot" class="error-spot"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-row-inner">
+                        <label for="input-email" class="input-label">Mejladress</label>
+                        <input id="input-email" type="email" name="email" class="input-icon mail-icon input-field">
+                        <p id="email-error-spot" class="error-spot"></p>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-row-inner">
+                        <label for="input-password" class="input-label">Lösenord</label>
+                        <input id="input-password" type="password" name="password" class="input-icon password-icon input-field">
+                        <p id="password-error-spot" class="error-spot"></p>
+                    </div>
+                </div>
+
+                <span class="mark"></span>
+
+                <div class="form-row">
+                    <div class="form-row-inner">
+                        <button type="submit" name="sign-up" class="input-button">
+                            Skapa Konto
+                        </button>
+                        <!--:PHP-ERROR:-->
+                    </div>
+                </div>
+
+            </form>
+
+        </article>
+
+    </main>
+
+    <!--:FOOTER:-->
+
+    </body>
+</html>

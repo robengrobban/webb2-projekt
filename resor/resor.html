@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<title>TuffeTuffeTåg - Resor</title>
+		<meta charset="utf-8">
+		<meta name="application-name" content="TuffeTuffeTåg">
+		<meta name="author" content="Robert Englund">
+		<meta name="description" content="TuffeTuffeTåg hemsida, boka en resa">
+		<meta name="generator" content="Egen gjord">
+		<meta name="keyword" content="start,hem">
+		<meta name="robots" content="all">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/nav.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/resor.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/footer.css">
+
+		<script defer src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script defer src="../assets/js/nav.js"></script>
+		<script defer src="../assets/js/ajax.js"></script>
+		<script defer src="../assets/js/resor.js"></script>
+		<script defer src="../assets/js/subscribe.js"></script>
+		<script defer src="../assets/js/validate.js"></script>
+
+	</head>
+	<body>
+
+		<!--:NAV:-->
+
+		<div id="hero-image">
+
+			<article>
+				<header>
+					<h1>Boka en resa.</h1>
+				</header>
+
+				<span class="mark"></span>
+
+				<p>Vi kan ta dig jorden runt!</p>
+			</article>
+
+		</div>
+
+
+		<div id="order-container" class="cut-background-top">
+			
+			<form method="POST" id="order-form">
+
+				<article id="step-trip" class="order-step-container max-content center-content">
+					
+					<header>
+						<h1>Vart vill du åka?</h1>
+						<span class="mark"></span>
+					</header>
+
+					<div class="order-input-container">
+						
+						<div class="order-row">
+							<div class="inner-row">
+								<label for="input-from" class="input-label">Från</label>
+								<input id="input-from" class="input-field input-icon map-icon" type="text" name="from" placeholder="Från...">
+								<input id="input-from-id" type="hidden" name="from-id" value="-1">
+								<ul id="input-from-suggestions" class="input-location-suggestion"></ul>
+								<p id="from-error-spot" class="error-spot"></p>
+							</div>
+						</div>
+
+						<div class="order-row">
+							<div class="inner-row">
+								<label for="input-dest" class="input-label">Till</label>
+								<input id="input-dest" class="input-field input-icon map-icon" type="text" name="dest" placeholder="Till...">
+								<input id="input-dest-id" type="hidden" name="dest-id" value="-1">
+								<ul id="input-dest-suggestions" class="input-location-suggestion"></ul>
+								<p id="dest-error-spot" class="error-spot"></p>
+							</div>
+						</div>
+
+					</div>
+
+
+
+					<div class="order-row full-width-order-row">
+						<div class="inner-row">
+							<button type="button" class="input-button controller-forward">Gå vidare</button>
+						</div>
+					</div>
+
+
+				</article>
+
+				<article id="step-departure" class="order-step-container max-content center-content hide">
+					
+					<header>
+						<h1>När vill du åka?</h1>
+						<span class="mark"></span>
+					</header>
+
+					<div class="order-input-container">
+
+						<div class="order-row full-width-order-row" >
+							<div class="inner-row">
+								<label for="input-departure" class="input-label">Avgång</label>
+								<select class="input-field" name="departure" id="input-departure">
+
+								</select>
+								<p id="departure-error-spot" class="error-spot"></p>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="order-controller-container">
+						<div class="order-row">
+							<div class="inner-row">
+								<button type="button" class="input-button controller-backward">Gå tillbaka</button>
+							</div>
+						</div>
+						<div class="order-row">
+							<div class="inner-row">
+								<button type="button" class="input-button controller-forward">Gå vidare</button>
+							</div>
+						</div>
+					</div>
+					
+
+				</article>
+
+				<article id="step-riders" class="order-step-container max-content center-content hide">
+					
+					<header>
+						<h1>Hur många ska åka?</h1>
+						<span class="mark"></span>
+					</header>
+
+					<div class="order-input-container">
+						
+						<div class="order-row">
+							<div class="inner-row">
+								<label for="input-adults" class="input-label">Vuxna</label>
+								<input id="input-adults" class="input-field input-icon person-icon" type="number" name="adults" placeholder="2...">
+								<p id="adults-error-spot" class="error-spot"></p>
+							</div>
+						</div>
+
+						<div class="order-row">
+							<div class="inner-row">
+								<label for="input-kids" class="input-label">Barn</label>
+								<input id="input-kids" class="input-field input-icon person-icon" type="number" name="kids" placeholder="1...">
+								<p id="kids-error-spot" class="error-spot"></p>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="order-controller-container">
+						<div class="order-row">
+							<div class="inner-row">
+								<button type="button" class="input-button controller-backward">Gå tillbaka</button>
+							</div>
+						</div>
+						<div class="order-row">
+							<div class="inner-row">
+								<button type="button" class="input-button controller-forward">Gå vidare</button>
+							</div>
+						</div>
+					</div>
+
+
+				</article>
+
+				<article id="step-seats" class="order-step-container max-content center-content hide">
+					
+					<header>
+						<h1>Vart vill ni sitta?</h1>
+						<span class="mark"></span>
+					</header>
+
+					<div class="order-input-container">
+						
+						<div class="order-row full-width-order-row">
+							
+							<div class="inner-row">
+								
+								<article id="select-table">
+
+									<header id="seat-select-header">
+										<h2>X kvar att välja</h2>
+									</header>
+
+									<input id="input-seats" type="hidden" type="text" name="seats">
+
+									<div id="seats-container">
+										<div class="seat-row">
+											<div class="select-item"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item select-chair seat-occupied"></div>
+											<div class="select-item"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+											<div class="select-item select-chair"></div>
+										</div>
+										<div class="seat-row">
+											<div class="select-item"></div>
+										</div>
+									</div>
+
+									<p id="seat-error-spot" class="error-spot"></p>
+									
+								</article>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="order-controller-container">
+						<div class="order-row">
+							<div class="inner-row">
+								<button type="button" class="input-button controller-backward">Gå tillbaka</button>
+							</div>
+						</div>
+						<div class="order-row">
+							<div class="inner-row">
+								<button type="button" class="input-button controller-forward">Gå vidare</button>
+							</div>
+						</div>
+					</div>
+
+				</article>
+
+				<article id="step-payment" class="order-step-container max-content center-content hide">
+					
+					<header>
+						<h1>Betalning</h1>
+						<span class="mark"></span>
+					</header>
+
+					<div class="order-input-container">
+						
+						<div class="order-row">
+							<div class="inner-row">
+								<label for="input-card" class="input-label">Kortnummer</label>
+								<input id="input-card" class="input-field input-icon credit-card-icon" type="number" name="card" placeholder="1111222233334444">
+								<p id="card-error-spot" class="error-spot"></p>
+							</div>
+						</div>
+
+						<div class="order-row">
+							<div class="inner-row">
+								<label for="input-holder" class="input-label">Kortinnehavare</label>
+								<input id="input-holder" class="input-field input-icon person-icon" type="text" name="holder" placeholder="Aaaaa Bbbbb">
+								<p id="holder-error-spot" class="error-spot"></p>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="order-input-container">
+						
+						<div class="order-row">
+							<div class="inner-row">
+								<label for="input-expire" class="input-label">Utgångsdatum</label>
+								<input id="input-expire" class="input-field input-icon event-icon" type="text" name="expire" placeholder="00/00">
+								<p id="expire-error-spot" class="error-spot"></p>
+							</div>
+						</div>
+
+						<div class="order-row">
+							<div class="inner-row">
+								<label for="input-cvv" class="input-label">CVV</label>
+								<input id="input-cvv" class="input-field input-icon lock-icon" type="number" name="cvv" placeholder="000">
+								<p id="cvv-error-spot" class="error-spot"></p>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="order-controller-container">
+						<div class="order-row">
+							<div class="inner-row">
+								<button type="button" class="input-button controller-backward">Gå tillbaka</button>
+							</div>
+						</div>
+						<div class="order-row">
+							<div class="inner-row">
+								<button type="submit" class="input-button" name="make-order">Köp</button>
+							</div>
+						</div>
+					</div>
+				</article>
+
+			</form>
+
+			<article id="buy-confirmation" class="order-step-container max-content center-content hide">
+					
+				<header>
+					<h1>Tack för ditt köp!</h1>
+					<span class="mark"></span>
+				</header>
+
+				<div class="recipt-row center-text">
+					<p>Du kan hitta detta kvitto under ditt konto, eller hos den mailadress som du registrerat hos ditt konto.</p>
+				</div>
+
+				<div class="recipt-row">
+					<label for="read-from" class="input-label">Från</label>
+					<input id="read-from" class="input-field" type="text" name="from" readonly>
+				</div>
+
+				<div class="recipt-row">
+					<label for="read-dest" class="input-label">Till</label>
+					<input id="read-dest" class="input-field" type="text" name="dest" readonly>
+				</div>
+
+				<div class="recipt-row">
+					<div class="recipt-half-row">
+						<label for="read-departure" class="input-label">Avgång</label>
+						<input id="read-departure" class="input-field" type="text" name="departure" readonly>
+					</div>
+				</div>
+
+				<div class="recipt-row recipt-divided-row">
+					<div class="recipt-half-row">
+						<label for="read-adults" class="input-label">Vuxna</label>
+						<input id="read-adults" class="input-field" type="text" name="adults" readonly>
+					</div>
+
+					<div class="recipt-half-row">
+						<label for="read-kids" class="input-label">Barn</label>
+						<input id="read-kids" class="input-field" type="text" name="kids" readonly>
+					</div>
+				</div>
+
+				<div class="recipt-row">
+					<label for="read-seats" class="input-label">Platser</label>
+					<input id="read-seats" class="input-field" type="text" name="seats" readonly>
+				</div>
+
+				<div class="recipt-row">
+					<label for="read-track" class="input-label">Spår</label>
+					<input id="read-track" class="input-field" type="text" name="track" readonly>
+				</div>
+
+				<div class="recipt-row">
+					<span>Digital biljett</span>
+					<div class="qr-container">
+						<img src="../assets/img/qr-code.svg" alt="biljett">
+					</div>
+				</div>
+				
+			</article>
+
+		</div>
+		
+
+		<!--:FOOTER:-->
+
+	</body>
+</html>

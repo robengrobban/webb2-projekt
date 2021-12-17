@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<title>TuffeTuffeTåg - Kontakt</title>
+		<meta charset="utf-8">
+		<meta name="application-name" content="TuffeTuffeTåg">
+		<meta name="author" content="Robert Englund">
+		<meta name="description" content="TuffeTuffeTåg hemsida, kontakta oss">
+		<meta name="generator" content="Egen gjord">
+		<meta name="keyword" content="kontakt,kontakta,kontakta-oss">
+		<meta name="robots" content="all">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/nav.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/kontakt.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/footer.css">
+
+		<script defer src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script defer src="../assets/js/nav.js"></script>
+		<script defer src="../assets/js/validate.js"></script>
+		<script defer src="../assets/js/ajax.js"></script>
+		<script defer src="../assets/js/kontakt.js"></script>
+		<script defer src="../assets/js/subscribe.js"></script>
+
+	</head>
+	<body>
+
+		<!--:NAV:-->
+
+		<div id="hero-image">
+
+			<article>
+				
+				<header>
+					<h1>Vad funderar du på?</h1>
+				</header>
+
+				<span class="mark"></span>
+
+				<p>Prata med oss! Vi hjälper dig.</p>
+
+			</article>
+
+		</div>
+
+
+		<div id="contact-area" class="cut-background-top">
+			
+			<article id="contact-container">
+				<form id="contact-form" class="max-content center-content">
+
+					<div id="form-content">
+						<div class="form-row">
+							<div class="form-row-inner">
+								<header>
+									<h1>Kontakata oss</h1>
+								</header>
+								<span class="mark"></span>
+							</div>
+						</div>
+						
+						<div class="form-row">
+							<div class="half-row-container">
+
+								<div class="half-row">
+
+									<div class="form-row-inner">
+										<label class="input-label" for="input-firstname">Förnamn</label>
+										<input id="input-firstname" type="text" name="firstname" class="input-icon person-icon input-field">
+										<p id="firstname-error-spot" class="error-spot"></p>
+									</div>
+
+								</div>
+
+								<div class="half-row">
+
+									<div class="form-row-inner">
+										<label class="input-label" for="input-lastname">Efternamn</label>
+										<input id="input-lastname" type="text" name="lastname" class="input-icon person-icon input-field">
+										<p id="lastname-error-spot" class="error-spot"></p>
+									</div>
+
+								</div>
+								
+							</div>
+							
+						</div>
+
+						<div class="form-row">
+							<div class="form-row-inner">
+								<label class="input-label">Hur vill du ha svar?</label>
+								<ul>
+									<li>
+										<input id="answertype-email" type="radio" name="answertype">
+										<label for="answertype-email">Email</label>
+									</li>
+									<li>
+										<input id="answertype-phone" type="radio" name="answertype">
+										<label for="answertype-phone">Telefon</label>
+									</li>
+									<li>
+										<input id="answertype-letter" type="radio" name="answertype">
+										<label for="answertype-letter">Brev</label>
+									</li>
+									<li>
+										<input checked id="answertype-none" type="radio" name="answertype">
+										<label for="answertype-none">Inget svar</label>
+									</li>
+								</ul>
+								<p id="answertype-error-spot" class="error-spot"></p>
+							</div>
+						</div>
+
+						<div id="answer-email" class="form-row">
+							<div class="form-row-inner">
+								<label class="input-label" for="input-email">Din email adress</label>
+								<input id="input-email" type="email" name="email" class="input-icon mail-icon input-field">
+								<p id="answer-email-error-spot" class="error-spot"></p>
+							</div>
+						</div>
+
+						<div id="answer-phone" class="form-row">
+							<div class="form-row-inner">
+								<label class="input-label" for="input-phone">Ditt telefonnummer</label>
+								<input id="input-phone" type="tel" name="phone" class="input-icon phone-icon input-field">
+								<p id="answer-phone-error-spot" class="error-spot"></p>
+							</div>
+						</div>
+
+						<div id="answer-letter" class="form-row">
+							<div class="half-row-container">
+								<div class="half-row">
+									<div class="form-row-inner">
+										<label class="input-label" for="input-address">Hemadress</label>
+										<input id="input-address" type="tel" name="phone" class="input-icon house-icon input-field">
+										<p id="answer-address-error-spot" class="error-spot"></p>
+									</div>
+								</div>
+								<div class="half-row">
+									<div class="form-row-inner">
+										<label class="input-label" for="input-zip">Postnummer</label>
+										<input id="input-zip" type="number" name="phone" class="input-icon dots-icon input-field">
+										<p id="answer-zip-error-spot" class="error-spot"></p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="form-row">
+							<div class="form-row-inner">
+								<label class="input-label" for="input-message">Meddelande</label>
+								<textarea class="input-area" id="input-message"></textarea>
+								<p id="message-error-spot" class="error-spot"></p>
+							</div>
+						</div>
+
+						<span class="mark"></span>
+
+						<div class="form-row">
+							<div class="form-row-inner">
+								<button type="submit" class="input-button">
+									Skicka
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div id="answer-content" class="contact-feedback">
+						
+						<div class="form-row">
+							<div class="form-row-inner">
+								<header>
+									<h1>Tack för ditt meddelande!</h1>
+								</header>
+								<span class="mark"></span>
+								<p>Vi svara inom en vecka beroende på vilken svarsmetod du valde.</p>
+							</div>
+						</div>
+
+					</div>
+
+					<div id="error-content" class="contact-feedback">
+
+						<div class="form-row">
+							<div class="form-row-inner">
+								<header>
+									<h1>Ajdå, något blev fel!</h1>
+								</header>
+								<span class="mark"></span>
+								<p>Vi kunde inte skicka din kontakt förfrågan till oss, var vänligen försök senare.</p>
+							</div>
+						</div>
+
+					</div>
+
+				</form>
+			</article>
+
+		</div>
+		
+
+		<!--:FOOTER:-->
+
+	</body>
+</html>

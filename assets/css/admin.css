@@ -1,0 +1,50 @@
+.content-area {
+    padding: 5rem 1rem;
+}
+
+article {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 3rem 0 #d0d0d0;
+}
+
+article header {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.form-row {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+}
+
+.output-list {
+    display: block;
+    list-style-type: none;
+    border: 0.2rem solid #d0d0d0;
+}
+.output-list li {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    overflow-x: auto;
+}
+.output-list li:nth-child(2n+1) {
+    background-color: #ced4da;
+}
+.output-list li:nth-child(2n) {
+    background-color: #f8f9fa;
+}
+.output-list li span {
+    padding: 0 0.25rem;
+    word-break: keep-all;
+}
+.output-list li a {
+    text-decoration: underline;
+    color: black;
+    display: block;
+    text-align: center;
+}

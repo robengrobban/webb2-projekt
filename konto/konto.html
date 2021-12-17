@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<title>TuffeTuffeTåg - Konto</title>
+		<meta charset="utf-8">
+		<meta name="application-name" content="TuffeTuffeTåg">
+		<meta name="author" content="Robert Englund">
+		<meta name="description" content="TuffeTuffeTåg hemsida, ditt konto">
+		<meta name="generator" content="Egen gjord">
+		<meta name="keyword" content="konto">
+		<meta name="robots" content="all">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/nav.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/konto.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/footer.css">
+
+		<script defer src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script defer src="../assets/js/nav.js"></script>
+		<script defer src="../assets/js/konto.js"></script>
+		<script defer src="../assets/js/subscribe.js"></script>
+		<script defer src="../assets/js/validate.js"></script>
+
+	</head>
+	<body>
+
+		<!--:NAV:-->
+
+		<div id="overview-container" class="cut-background-top">
+
+			<article class="center-content max-content">
+
+				<header>
+					<h1>Mitt konto</h1>
+				</header>
+
+				<span class="mark"></span>
+				
+				<div class="content-container">
+
+					<div class="picture-container">
+						
+						<img src="--:PROFILE-PICTURE:--" alt="Profilbild">
+
+					</div>
+
+					<div class="information-container">
+						
+						<div class="information-row">
+							<p id="information-firstname"><!--:FIRSTNAME:--></p>
+						</div>
+
+						<div class="information-row">
+							<p id="information-lastname"><!--:LASTNAME:--></p>
+						</div>
+
+						<div class="information-row">
+							<p id="information-email"><!--:EMAIL:--></p>
+						</div>
+
+					</div>
+				
+				</div>
+
+
+			</article>
+
+		</div>
+
+		<div id="upcoming-travels" class="outer-travels-container cut-background-bottom">
+
+			<article class="center-content max-content">
+
+				<header>
+					<h1>Kommande resor</h1>
+				</header>
+
+				<span class="mark"></span>
+
+				<div class="travels-container">
+					<table class="travels-table">
+
+						<thead>
+						<tr>
+							<th>Från</th>
+							<th>Till</th>
+							<th>Datum</th>
+							<th>Avgång</th>
+							<th>Spår</th>
+							<th>Biljett</th>
+						</tr>
+						</thead>
+
+						<tbody>
+						<!--:UPCOMING-ENTRY:-->
+						<tr>
+							<td>--:UPCOMING-FROM:--</td>
+							<td>--:UPCOMING-TO:--</td>
+							<td>--:UPCOMING-DATE:--</td>
+							<td>--:UPCOMING-TIME:--</td>
+							<td>--:UPCOMING-TRACK:--</td>
+							<td>--:UPCOMING-TICKET:--</td>
+						</tr>
+						<!--:UPCOMING-ENTRY:-->
+						</tbody>
+
+					</table>
+				</div>
+
+			</article>
+
+		</div>
+
+
+		<div id="settings-area" class="cut-background-top">
+			
+			<article id="settings-container" class="center-content max-content">
+
+				<header>
+					<h1>Inställningar</h1>
+				</header>
+
+				<span class="mark"></span>
+				
+				<div class="form-container">
+					<form method="POST" id="account-settings" class="settings-form">
+						
+						<div class="form-row">
+							<h2>Konto</h2>
+						</div>
+
+						<div class="form-row">
+							<label for="input-firstname" class="input-label">Förnamn</label>
+							<input id="input-firstname" class="input-field" type="text" name="firstname" value="<!--:INPUT-FIRSTNAME:-->">
+							<p id="firstname-error-spot" class="error-spot"></p>
+						</div>
+
+						<div class="form-row">
+							<label for="input-lastname" class="input-label">Efternamn</label>
+							<input id="input-lastname" class="input-field" type="text" name="lastname" value="<!--:INPUT-LASTNAME:-->">
+							<p id="lastname-error-spot" class="error-spot"></p>
+						</div>
+
+						<div class="form-row">
+							<label for="input-email" class="input-label">Email</label>
+							<input id="input-email" class="input-field" type="email" name="email" value="<!--:INPUT-EMAIL:-->">
+							<p id="email-error-spot" class="error-spot"></p>
+						</div>
+
+						<div class="form-row">
+							<p id="account-settings-confirmation">Vi har uppdaterat dina inställningar</p>
+						</div>
+
+						<div class="form-row">
+							<button type="submit" class="input-button">
+								Spara
+							</button>
+							<p id="save-button-error-spot" class="error-spot"></p>
+						</div>
+
+					</form>
+
+					<form method="POST" id="other-settings" class="settings-form">
+						
+						<div class="form-row">
+							<h2>Övrigt</h2>
+						</div>
+
+						<div class="form-row">
+							<label for="input-notrec" class="checkmark-container">
+								<input id="input-notrec" type="checkbox"  name="notification-recommended" data-notification-recommended>
+								<span class="checkmark"></span>Notifikationer om rekommenderade resor.
+							</label>
+						</div>
+
+						<div class="form-row">
+							<label for="input-notcom" class="checkmark-container">
+								<input id="input-notcom" type="checkbox"  name="notification-upcoming" data-notification-upcoming>
+								<span class="checkmark"></span>Notifikationer om kommande resor.
+							</label>
+						</div>
+
+						<div class="form-row">
+							<label for="input-savemethod" class="checkmark-container">
+								<input id="input-savemethod" type="checkbox" name="payment-save" data-payment-save>
+								<span class="checkmark"></span>Spara mina betalmetoder.
+							</label>
+						</div>
+
+						<div class="form-row">
+							<p id="other-settings-confirmation">Vi har uppdaterat dina inställningar</p>
+						</div>
+
+						<div class="form-row">
+							<button type="submit" class="input-button">
+								Spara
+							</button>
+							<p id="other-save-error-spot" class="error-spot"></p>
+						</div>
+
+					</form>
+				</div>
+
+				<div class="form-container">
+					<form method="POST" action="../assets/php/update-picture.php" id="upload-profile-picture" class="settings-form" enctype="multipart/form-data">
+
+						<div class="form-row">
+							<h2>Profilbild</h2>
+						</div>
+
+						<div class="form-row">
+							<label for="input-file" class="input-label">Välj en fil:</label>
+							<input id="input-file" class="input-field" type="file"  name="picture" accept="image/*">
+						</div>
+
+						<div class="form-row">
+							<button type="submit" class="input-button">
+								Spara
+							</button>
+							<p id="profile-picture-error-spot" class="error-spot">
+								<!--:PROFILE-PICTURE-ERROR-SPOT:-->
+							</p>
+						</div>
+
+					</form>
+				</div>
+
+			</article>
+
+		</div>
+
+
+		<div id="previous-travels" class="outer-travels-container cut-background-bottom">
+
+			<article class="center-content max-content">
+
+				<header>
+					<h1>Tidigare resor</h1>
+				</header>
+
+				<span class="mark"></span>
+
+				<div class="travels-container">
+					<table class="travels-table">
+
+						<thead>
+						<tr>
+							<th>Från</th>
+							<th>Till</th>
+							<th>Datum</th>
+							<th>Avgång</th>
+							<th>Spår</th>
+						</tr>
+						</thead>
+
+						<tbody>
+						<!--:PREVIOUS-ENTRY:-->
+						<tr>
+							<td>--:PREVIOUS-FROM:--</td>
+							<td>--:PREVIOUS-TO:--</td>
+							<td>--:PREVIOUS-DATE:--</td>
+							<td>--:PREVIOUS-TIME:--</td>
+							<td>--:PREVIOUS-TRACK:--</td>
+						</tr>
+						<!--:PREVIOUS-ENTRY:-->
+						</tbody>
+
+					</table>
+				</div>
+
+			</article>
+
+		</div>
+
+
+		<!--:FOOTER:-->
+
+	</body>
+</html>

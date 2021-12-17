@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <title>TuffeTuffeTåg - Admin Recensioner</title>
+        <meta charset="utf-8">
+        <meta name="application-name" content="TuffeTuffeTåg">
+        <meta name="author" content="Robert Englund">
+        <meta name="description" content="TuffeTuffeTåg hemsida, admin recensioner">
+        <meta name="generator" content="Egen gjord">
+        <meta name="keyword" content="admin">
+        <meta name="robots" content="noindex">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="../../assets/css/main.css">
+        <link rel="stylesheet" type="text/css" href="../../assets/css/nav.css">
+        <link rel="stylesheet" type="text/css" href="../../assets/css/admin.css">
+
+        <script defer src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script defer src="../../assets/js/nav.js"></script>
+        <script defer src="../../assets/js/admin.js"></script>
+        <script defer src="../../assets/js/validate.js"></script>
+
+    </head>
+    <body>
+
+        <!--:NAV:-->
+
+        <main>
+
+            <div class="cut-background-top">
+                <div class="content-area">
+                    <article class="center-content max-content">
+                        <header>
+                            <h1>Lägg till recension</h1>
+                        </header>
+                        <form action="add-review.php" method="POST">
+
+                            <div class="form-row">
+                                <label class="input-label" for="account-reviewer">Konto</label>
+                                <select class="input-field" required id="account-reviewer" name="account">
+                                    <!--:ACCOUNTS:-->
+                                    <option value="--:account-id:--">--:account-id:-- - --:account-name:--</option>
+                                    <!--:ACCOUNTS:-->
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <label class="input-label" for="input-content">Innehåll</label>
+                                <textarea class="input-area" required id="input-content" name="content"></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <button class="input-button" type="submit" name="add-review">
+                                    Lägg till
+                                </button>
+                            </div>
+
+                        </form>
+                    </article>
+                </div>
+                <div class="content-area">
+                    <article class="center-content max-content">
+                        <header>
+                            <h1>Alla recensioner</h1>
+                        </header>
+                        <form action="remove-review.php" method="POST">
+
+                            <ul class="output-list">
+                                <!--:ALL-REVIEWS:-->
+                                <li>
+                                    <span>Skapare: --:account-id:-- - --:account-name:--</span>
+                                    <br><br>
+                                    <span>ID: --:review-id:--</span>
+                                    <br><br>
+                                    <span>Innehåll: --:review-content:--</span>
+                                    <br><br>
+                                    <button type="submit" name="remove-id" value="--:review-id:--">
+                                        Ta bort
+                                    </button>
+                                </li>
+                                <!--:ALL-REVIEWS:-->
+                            </ul>
+
+                        </form>
+                    </article>
+                </div>
+            </div>
+
+        </main>
+
+    </body>
+</html>
