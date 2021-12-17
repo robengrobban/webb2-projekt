@@ -1,4 +1,6 @@
 # Webb2 Projekt
+Webbutveckling 2 gesällprov på SU DSV.
+<br>
 TuffeTuffeTåg hemsida.
 <br>
 För att köra projektet kan [database.sql](https://github.com/robengrobban/webb2-projekt/blob/main/database.sql) laddas in i MySQL. För att få projektet ansluta till databasen kan [connect-database.php](https://github.com/robengrobban/webb2-projekt/blob/main/assets/php/connect-database.php) modifieras som ligger i assets/php mappen.
