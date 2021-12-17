@@ -147,6 +147,7 @@ function buildReviewList( json ) {
 
 		reviews.push(review);
 	}
+	maxReviews = reviews.length;
 }
 
 // Get review information
